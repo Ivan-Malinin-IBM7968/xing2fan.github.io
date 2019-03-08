@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/BMP_FILE/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/BMP_FILE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xing2fan">
@@ -338,7 +338,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/03/08/BMP_FILE/" itemprop="url">BMP文件格式</a></h1>
+                <a class="post-title-link" href="/2019/03/09/BMP_FILE/" itemprop="url">BMP文件格式</a></h1>
         
 
         <div class="post-meta">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-08T21:42:09+08:00">
-                2019-03-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T22:47:44+08:00">
+                2019-03-09
               </time>
             
 
@@ -360,6 +360,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/图片处理/" itemprop="url" rel="index">
+                    <span itemprop="name">图片处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -389,52 +411,14 @@
 
       
         
-          
-            <p>BMP文件格式是在windows系统中使用较多的一种图像文件格式。它可以保存完整的图像所有像素数据。</p>
-<p>BMP文件的数据按照从文件头开始的先后顺序分为四个部分：</p>
-<ol>
-<li>BMP文件头(BMP file header)：提供文件的格式、大小等信息，一共14个字节。</li>
-<li>位图信息头(bitmap information)：提供图像数据的尺寸、位平面数、压缩方式、颜色索引等信息，一共40个字节。</li>
-<li>调色板(color palette)：可选，如使用索引来表示图像，调色板就是索引与其对应的颜色的映射表。</li>
-<li>位图数据(bitmap data)：就是图像数据。</li>
-</ol>
-<p>其中，是否含有调色板部分信息是根据BMP图像的位数决定的。比如，24位BMP和32位BMP不包含调色板部分，而对于8位BMP和16位BMP是需要调色板信息的。</p>
-<p>在BMP文件中，BMP文件存储数据时，图像的扫描方式是按从左到右、从下到上的顺序，存放格式是按照“小端序”，即低字节放低地址, 高字节放高地址。</p>
-<p>【举例】数字0x12 34 56 78在内存中的表示形式为：<br>1)大端模式：<br>低地址 —————–&gt; 高地址<br>0x12  |  0x34  |  0x56  |  0x78<br>2)小端模式：<br>低地址 ——————&gt; 高地址<br>0x78  |  0x56  |  0x34  |  0x12<br>具体内容可参见：<br><a href="https://blog.csdn.net/ce123_zhouwei/article/details/6971544" title="With a Title" target="_blank" rel="noopener">详解大小端</a>. </p>
-<hr>
-<pre><code>/*14Bytes*/
-typedef struct 
-{  
-    unsigned int   bfSize;   
-    unsigned short bfReserved1;  
-    unsigned short bfReserved2;   
-    unsigned int   bfOffBits;
-}BITMAPFILEHEADER;
-typedef struct 
-{  
-unsigned int   biSize;   
-intbiWidth;              
-intbiHeight;  
-unsigned short biPlanes;  
-unsigned short biBitCount;
-unsigned int   biCompression;
-unsigned int   biSizeImage;   
-intbiXPelsPerMeter;  
-intbiYPelsPerMeter;   
-unsigned int   biClrUsed;
-unsigned int   biClrImportant;  
-}BITMAPINFOHEADER;
-</code></pre><p>若BITMAPINFOHEADER的成员biHeight为负值, 则BMP数据存储方向为从左到右, 从上到下；<br>若BITMAPINFOHEADER的成员biHeight为正值, 则BMP数据存储方向为从左到右, 从下到上；<br>有时候可能需要将BMP图中的数据做BGR和RGB的转换，因为WINDOWS系统下多采用BGR，而有的平台或者系统可能会使用RGB。</p>
-<pre><code>for(i = 0; i &lt; (w*h); i++)
-{
-    temp = *(readBuff + i*3);
-    *(readBuff + i*3) = *(readBuff + i*3 + 2);
-    *(readBuff + i*3 + 2) = temp;    
-}
-</code></pre><p>BMP图像格式还有一个非常重要的规定：要求每一扫描行的字节数据必须能被4整除，如果图像的一行字节数不能被4整除，就需要在每行的末尾补齐0以达到规定。因此，在我们的读取数据中需要根据BMP图像的宽度来判断是否被补0。</p>
-<p>先判断一行的字节数是否可以被4整除，如果整除则不需要补0，如果没有整除，则求出补的0的个数，具体计算方法是：<br>    bu_0_number =4 -  width(像素) * 3 % 4<br>那么就知道在每一行的末尾都补了bu_0_number个0，因此我们在读取时绘制图片时就要忽略这些数据。</p>
-
-          
+          介绍BMP的图像格式
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/03/09/BMP_FILE/">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -521,7 +505,25 @@ unsigned int   biClrImportant;
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>

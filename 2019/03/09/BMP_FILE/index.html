@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="图像 BMP - BMP - 图像,">
 
 
 
@@ -81,17 +81,18 @@
 
 
 
-<meta name="description" content="BMP文件格式是在windows系统中使用较多的一种图像文件格式。它可以保存完整的图像所有像素数据。 BMP文件的数据按照从文件头开始的先后顺序分为四个部分：  BMP文件头(BMP file header)：提供文件的格式、大小等信息，一共14个字节。 位图信息头(bitmap information)：提供图像数据的尺寸、位平面数、压缩方式、颜色索引等信息，一共40个字节。 调色板(color">
+<meta name="description" content="介绍BMP的图像格式">
+<meta name="keywords" content="图像 BMP - BMP - 图像">
 <meta property="og:type" content="article">
 <meta property="og:title" content="BMP文件格式">
-<meta property="og:url" content="http://yoursite.com/2019/03/08/BMP_FILE/index.html">
+<meta property="og:url" content="http://yoursite.com/2019/03/09/BMP_FILE/index.html">
 <meta property="og:site_name" content="xing2fan">
-<meta property="og:description" content="BMP文件格式是在windows系统中使用较多的一种图像文件格式。它可以保存完整的图像所有像素数据。 BMP文件的数据按照从文件头开始的先后顺序分为四个部分：  BMP文件头(BMP file header)：提供文件的格式、大小等信息，一共14个字节。 位图信息头(bitmap information)：提供图像数据的尺寸、位平面数、压缩方式、颜色索引等信息，一共40个字节。 调色板(color">
+<meta property="og:description" content="介绍BMP的图像格式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-08T14:37:59.630Z">
+<meta property="og:updated_time" content="2019-03-08T14:51:30.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BMP文件格式">
-<meta name="twitter:description" content="BMP文件格式是在windows系统中使用较多的一种图像文件格式。它可以保存完整的图像所有像素数据。 BMP文件的数据按照从文件头开始的先后顺序分为四个部分：  BMP文件头(BMP file header)：提供文件的格式、大小等信息，一共14个字节。 位图信息头(bitmap information)：提供图像数据的尺寸、位平面数、压缩方式、颜色索引等信息，一共40个字节。 调色板(color">
+<meta name="twitter:description" content="介绍BMP的图像格式">
 
 
 
@@ -121,7 +122,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/03/08/BMP_FILE/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/09/BMP_FILE/">
 
 
 
@@ -322,7 +323,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/08/BMP_FILE/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/09/BMP_FILE/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="xing2fan">
@@ -351,8 +352,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-08T21:42:09+08:00">
-                2019-03-08
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-09T22:47:44+08:00">
+                2019-03-09
               </time>
             
 
@@ -362,6 +363,28 @@
           </span>
 
           
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/图片处理/" itemprop="url" rel="index">
+                    <span itemprop="name">图片处理</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -374,6 +397,10 @@
 
           
 
+          
+              <div class="post-description">
+                  介绍BMP的图像格式
+              </div>
           
 
         </div>
@@ -411,17 +438,17 @@ typedef struct
 }BITMAPFILEHEADER;
 typedef struct 
 {  
-unsigned int   biSize;   
-intbiWidth;              
-intbiHeight;  
-unsigned short biPlanes;  
-unsigned short biBitCount;
-unsigned int   biCompression;
-unsigned int   biSizeImage;   
-intbiXPelsPerMeter;  
-intbiYPelsPerMeter;   
-unsigned int   biClrUsed;
-unsigned int   biClrImportant;  
+    unsigned int   biSize;   
+    int               biWidth;              
+    int               biHeight;  
+    unsigned short biPlanes;  
+    unsigned short biBitCount;
+    unsigned int   biCompression;
+    unsigned int   biSizeImage;   
+    int               biXPelsPerMeter;  
+    int               biYPelsPerMeter;   
+    unsigned int   biClrUsed;
+    unsigned int   biClrImportant;  
 }BITMAPINFOHEADER;
 </code></pre><p>若BITMAPINFOHEADER的成员biHeight为负值, 则BMP数据存储方向为从左到右, 从上到下；<br>若BITMAPINFOHEADER的成员biHeight为正值, 则BMP数据存储方向为从左到右, 从下到上；<br>有时候可能需要将BMP图中的数据做BGR和RGB的转换，因为WINDOWS系统下多采用BGR，而有的平台或者系统可能会使用RGB。</p>
 <pre><code>for(i = 0; i &lt; (w*h); i++)
@@ -446,6 +473,12 @@ unsigned int   biClrImportant;
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/图像-BMP-BMP-图像/" rel="tag"># 图像 BMP - BMP - 图像</a>
+          
+        </div>
       
 
       
@@ -523,7 +556,25 @@ unsigned int   biClrImportant;
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
