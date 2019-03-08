@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-07T14:15:02.320Z</updated>
+  <updated>2019-03-08T14:37:59.630Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>BMP文件格式</title>
+    <link href="http://yoursite.com/2019/03/08/BMP_FILE/"/>
+    <id>http://yoursite.com/2019/03/08/BMP_FILE/</id>
+    <published>2019-03-08T13:42:09.595Z</published>
+    <updated>2019-03-08T14:37:59.630Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        
+        
+          &lt;p&gt;BMP文件格式是在windows系统中使用较多的一种图像文件格式。它可以保存完整的图像所有像素数据。&lt;/p&gt;
+&lt;p&gt;BMP文件的数据按照从文件头开始的先后顺序分为四个部分：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;BMP文件头(BMP file
+        
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Hello World</title>

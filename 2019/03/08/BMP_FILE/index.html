@@ -81,13 +81,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="xing2fan">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="BMP文件格式是在windows系统中使用较多的一种图像文件格式。它可以保存完整的图像所有像素数据。 BMP文件的数据按照从文件头开始的先后顺序分为四个部分：  BMP文件头(BMP file header)：提供文件的格式、大小等信息，一共14个字节。 位图信息头(bitmap information)：提供图像数据的尺寸、位平面数、压缩方式、颜色索引等信息，一共40个字节。 调色板(color">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BMP文件格式">
+<meta property="og:url" content="http://yoursite.com/2019/03/08/BMP_FILE/index.html">
 <meta property="og:site_name" content="xing2fan">
+<meta property="og:description" content="BMP文件格式是在windows系统中使用较多的一种图像文件格式。它可以保存完整的图像所有像素数据。 BMP文件的数据按照从文件头开始的先后顺序分为四个部分：  BMP文件头(BMP file header)：提供文件的格式、大小等信息，一共14个字节。 位图信息头(bitmap information)：提供图像数据的尺寸、位平面数、压缩方式、颜色索引等信息，一共40个字节。 调色板(color">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-08T14:37:59.630Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="xing2fan">
+<meta name="twitter:title" content="BMP文件格式">
+<meta name="twitter:description" content="BMP文件格式是在windows系统中使用较多的一种图像文件格式。它可以保存完整的图像所有像素数据。 BMP文件的数据按照从文件头开始的先后顺序分为四个部分：  BMP文件头(BMP file header)：提供文件的格式、大小等信息，一共14个字节。 位图信息头(bitmap information)：提供图像数据的尺寸、位平面数、压缩方式、颜色索引等信息，一共40个字节。 调色板(color">
 
 
 
@@ -117,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/03/08/BMP_FILE/">
 
 
 
 
 
-  <title>xing2fan</title>
+  <title>BMP文件格式 | xing2fan</title>
   
 
 
@@ -142,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	
 	
@@ -304,9 +307,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -336,9 +339,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/08/BMP_FILE/" itemprop="url">BMP文件格式</a></h1>
+          <h1 class="post-title" itemprop="name headline">BMP文件格式</h1>
         
 
         <div class="post-meta">
@@ -388,9 +389,7 @@
       
 
       
-        
-          
-            <p>BMP文件格式是在windows系统中使用较多的一种图像文件格式。它可以保存完整的图像所有像素数据。</p>
+        <p>BMP文件格式是在windows系统中使用较多的一种图像文件格式。它可以保存完整的图像所有像素数据。</p>
 <p>BMP文件的数据按照从文件头开始的先后顺序分为四个部分：</p>
 <ol>
 <li>BMP文件头(BMP file header)：提供文件的格式、大小等信息，一共14个字节。</li>
@@ -434,8 +433,6 @@ unsigned int   biClrImportant;
 </code></pre><p>BMP图像格式还有一个非常重要的规定：要求每一扫描行的字节数据必须能被4整除，如果图像的一行字节数不能被4整除，就需要在每行的末尾补齐0以达到规定。因此，在我们的读取数据中需要根据BMP图像的宽度来判断是否被补0。</p>
 <p>先判断一行的字节数是否可以被4整除，如果整除则不需要补0，如果没有整除，则求出补的0的个数，具体计算方法是：<br>    bu_0_number =4 -  width(像素) * 3 % 4<br>那么就知道在每一行的末尾都补了bu_0_number个0，因此我们在读取时绘制图片时就要忽略这些数据。</p>
 
-          
-        
       
     </div>
     
@@ -452,140 +449,28 @@ unsigned int   biClrImportant;
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="xing2fan">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="xing2fan">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/03/07/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-07T22:15:02+08:00">
-                2019-03-07
-              </time>
+              <a href="/2019/03/07/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -595,10 +480,11 @@ unsigned int   biClrImportant;
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -606,6 +492,10 @@ unsigned int   biClrImportant;
 
 
           
+
+  
+
+
 
         </div>
         
@@ -818,6 +708,10 @@ unsigned int   biClrImportant;
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
