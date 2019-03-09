@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="xing2fan">
 <meta property="og:description" content="介绍BMP的图像格式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-09T00:44:25.470Z">
+<meta property="og:updated_time" content="2019-03-09T00:50:19.759Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BMP文件格式">
 <meta name="twitter:description" content="介绍BMP的图像格式">
@@ -428,25 +428,26 @@
 <h1 id="2-BMP文件结构体"><a href="#2-BMP文件结构体" class="headerlink" title="2.BMP文件结构体"></a>2.BMP文件结构体</h1><pre><code>/*14Bytes file header*/
 typedef struct 
 {  
-    unsigned int   bfSize;   
-    unsigned short bfReserved1;  
-    unsigned short bfReserved2;   
-    unsigned int   bfOffBits;
+    u_int16_t bfType;   
+    u_int32_t bfSize;   
+    u_int16_t bfReserved1;   
+    u_int16_t bfReserved2;   
+    u_int32_t bfOffBits;  
 }BITMAPFILEHEADER;
 /*40Bytes bmp mapinfo header*/
 typedef struct 
 {  
-    unsigned int   biSize;   
-    int               biWidth;              
-    int               biHeight;  
-    unsigned short biPlanes;  
-    unsigned short biBitCount;
-    unsigned int   biCompression;
-    unsigned int   biSizeImage;   
-    int             biXPelsPerMeter;  
-    int             biYPelsPerMeter;   
-    unsigned int   biClrUsed;
-    unsigned int   biClrImportant;  
+    u_int32_t biSize;   
+    u_int32_t biWidth;   
+    u_int32_t biHeight;   
+    u_int16_t biPlanes;   
+    u_int16_t biBitCount;   
+    u_int32_t biCompression;   
+    u_int32_t biSizeImage;   
+    u_int32_t biXPelsPerMeter;   
+    u_int32_t biYPelsPerMeter;   
+    u_int32_t biClrUsed;   
+    u_int32_t biClrImportant;   
 }BITMAPINFOHEADER;
 </code></pre><p>若BITMAPINFOHEADER的成员biHeight为负值, 则表示BMP数据存储方向为从左到右, 从上到下；<br>若BITMAPINFOHEADER的成员biHeight为正值, 则表示BMP数据存储方向为从左到右, 从下到上；<br>此外，有时候可能需要将BMP图中的裸数据做BGR和RGB的转换，因为WINDOWS系统下多采用BGR，而有的平台或者系统可能会使用RGB,转换可以如下方式进行：</p>
 <pre><code>for(i = 0; i &lt; (w*h); i++)
