@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="xing2fan">
 <meta property="og:description" content="介绍BMP的图像格式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-09T00:36:12.416Z">
+<meta property="og:updated_time" content="2019-03-09T00:39:33.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BMP文件格式">
 <meta name="twitter:description" content="介绍BMP的图像格式">
@@ -424,7 +424,7 @@
 <li>调色板(color palette)：<strong>可选</strong>，如使用索引来表示图像，调色板就是索引与其对应的颜色的映射表。</li>
 <li>位图数据(bitmap data)：就是图像裸数据。<br>其中，是否含有调色板信息是根据BMP图像的位数(深度)决定的。比如，24位BMP和32位BMP不包含调色板部分，而对于8位BMP和16位BMP是需要调色板信息的。  </li>
 </ol>
-<p>在BMP图像文件中存储数据时，图像像素点数据的扫描方式是按<strong>从左到右、从下到上</strong>的顺序，存放格式是采用“小端序”，即低字节放低地址, 高字节放高地址。<br>【举例】比如数字0x12 34 56 78在内存中的表示形式为：<br>1)<strong>大端</strong>模式：<br>低地址 ——————&gt; 高地址<br>0x12  |  0x34  |  0x56  |  0x78<br>2)<strong>小端</strong>模式：<br>低地址 ——————&gt; 高地址<br>0x78  |  0x56  |  0x34  |  0x12<br>具体内容可参见博客文章：<a href="https://blog.csdn.net/ce123_zhouwei/article/details/6971544" title="With a Title" target="_blank" rel="noopener">详解大小端</a>. </p>
+<p>在BMP图像文件中存储数据时，图像像素点数据的扫描方式是按<strong>从左到右、从下到上</strong>的顺序，存放格式是采用“小端序”，即低字节放低地址, 高字节放高地址。<br>【举例】比如数字0x12 34 56 78在内存中的表示形式为：<br>1)<strong>大端</strong>模式：<br>低地址 ——————&gt; 高地址<br>0x12  |  0x34  |  0x56  |  0x78<br>2)<strong>小端</strong>模式：<br>低地址 ——————&gt; 高地址<br>0x78  |  0x56  |  0x34  |  0x12<br>具体内容可参见介绍大小端的博客文章：<a href="https://blog.csdn.net/ce123_zhouwei/article/details/6971544" title="With a Title" target="_blank" rel="noopener">详解大端模式和小端模式</a>. </p>
 <h1 id="2-BMP文件结构体"><a href="#2-BMP文件结构体" class="headerlink" title="2.BMP文件结构体"></a>2.BMP文件结构体</h1><pre><code>/*14Bytes file header*/
 typedef struct 
 {  
