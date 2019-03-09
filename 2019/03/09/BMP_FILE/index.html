@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="xing2fan">
 <meta property="og:description" content="介绍BMP的图像格式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-09T00:50:19.759Z">
+<meta property="og:updated_time" content="2019-03-09T01:24:03.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="BMP文件格式">
 <meta name="twitter:description" content="介绍BMP的图像格式">
@@ -416,7 +416,7 @@
       
 
       
-        <h1 id="1-BMP格式"><a href="#1-BMP格式" class="headerlink" title="1.BMP格式"></a>1.BMP格式</h1><p>BMP文件格式是在<strong>windows系统</strong>中使用较多的一种图像文件格式。它可以完整的保存一幅图像所有像素数据。</p>
+        <h1 id="1-BMP格式"><a href="#1-BMP格式" class="headerlink" title="1.BMP格式"></a>1.BMP格式</h1><p>BMP格式是在<strong>windows系统</strong>中使用较多的一种<strong>图像</strong>文件格式。它可以完整的保存一幅图像所有像素数据。</p>
 <p>BMP图像文件里面的数据从文件头开始可分为4个部分，各个部分如下：</p>
 <ol>
 <li>BMP文件头(BMP file header)：它提供文件的<strong>格式、大小</strong>等信息，一共<strong>14</strong>个字节。</li>
@@ -449,12 +449,12 @@ typedef struct
     u_int32_t biClrUsed;   
     u_int32_t biClrImportant;   
 }BITMAPINFOHEADER;
-</code></pre><p>若BITMAPINFOHEADER的成员biHeight为负值, 则表示BMP数据存储方向为从左到右, 从上到下；<br>若BITMAPINFOHEADER的成员biHeight为正值, 则表示BMP数据存储方向为从左到右, 从下到上；<br>此外，有时候可能需要将BMP图中的裸数据做BGR和RGB的转换，因为WINDOWS系统下多采用BGR，而有的平台或者系统可能会使用RGB,转换可以如下方式进行：</p>
+</code></pre><p>若BITMAPINFOHEADER的成员biHeight为负值, 则表示BMP数据存储方向为从左到右, 从上到下；<br>若BITMAPINFOHEADER的成员biHeight为正值, 则表示BMP数据存储方向为从左到右, 从下到上；<br>此外，有时候可能需要将BMP图中的裸数据做BGR和RGB的转换，因为WINDOWS系统下多采用BGR，而有的平台或者系统可能会使用RGB,转换可以如下方式进行，即将每个像素点的红色分量和蓝色分量交换位置。</p>
 <pre><code>for(i = 0; i &lt; (w*h); i++)
 {
-    temp = *(readBuff + i*3);
-    *(readBuff + i*3) = *(readBuff + i*3 + 2);
-    *(readBuff + i*3 + 2) = temp;    
+    temp = *(bmpBuff + i*3);
+    *(bmpBuff + i*3) = *(bmpBuff + i*3 + 2);
+    *(bmpBuff + i*3 + 2) = temp;    
 }
 </code></pre><p>BMP图像格式还有一个非常重要的规定：要求每一扫描行的字节数据必须能被4整除，如果图像的一行字节数不能被4整除，就需要在每行的末尾补齐0以达到规定。因此，在我们的读取数据中需要根据BMP图像的宽度来判断是否被补0。</p>
 <p>先判断一行的字节数是否可以被4整除，如果整除则不需要补0，如果没有整除，则求出补的0的个数，具体计算方法是：<br>    bu_0_number =4 -  width(像素) * 3 % 4<br>那么就知道在每一行的末尾都补了bu_0_number个0，因此我们在读取时绘制图片时就要忽略这些数据。</p>
