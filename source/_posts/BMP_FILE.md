@@ -5,7 +5,7 @@ categories: "图片处理"
 tags: 图像 BMP
      - BMP
      - 图像
-description: 介绍BMP的图像格式
+description: 1.记录和介绍BMP的图像格式
 ---
 # 1.BMP格式 #
 BMP格式是在**windows系统**中使用较多的一种**图像**文件格式。它可以完整的保存一幅图像所有像素数据。
